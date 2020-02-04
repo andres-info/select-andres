@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-02-2020 a las 21:59:31
+-- Tiempo de generación: 04-02-2020 a las 22:29:31
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.26
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `authcourse`
+-- Base de datos: `db_prueba`
 --
 
 -- --------------------------------------------------------
@@ -49,50 +49,6 @@ CREATE TABLE `combo` (
 INSERT INTO `combo` (`id`, `country_id`, `state_id`, `country_ids`, `state_ids`, `incoterm_id`, `move_type_id`, `date_from`, `date_to`, `created_at`, `40hq`) VALUES
 (1, 1, 1, 2, 2, 1, 1, '2020-01-23', '2020-01-23', '2020-01-16 23:46:24', 40),
 (2, 3, 3, 1, 1, 20, 3, '2020-01-23', '2020-01-23', '2020-01-23 16:36:53', 451);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `commodity`
---
-
-CREATE TABLE `commodity` (
-  `id` int(11) NOT NULL,
-  `type_commodity` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `commodity`
---
-
-INSERT INTO `commodity` (`id`, `type_commodity`, `created_at`) VALUES
-(1, 'Bicicletas', '2020-01-16 00:00:00'),
-(2, 'Medicamentos', '2020-01-16 00:00:00'),
-(3, 'llantas', '2020-01-16 00:00:00'),
-(4, 'Algo Más', '2020-01-16 18:26:04');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `container`
---
-
-CREATE TABLE `container` (
-  `id` int(11) NOT NULL,
-  `type_container` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `container`
---
-
-INSERT INTO `container` (`id`, `type_container`, `created_at`) VALUES
-(1, '40 HQ', '2020-01-16 18:41:52'),
-(2, '20', '2020-01-16 18:41:52'),
-(3, '40', '2020-01-16 18:41:52'),
-(4, '100', '2020-01-16 18:41:52');
 
 -- --------------------------------------------------------
 
@@ -383,49 +339,6 @@ INSERT INTO `country` (`name`, `code`, `id`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `incoterm`
---
-
-CREATE TABLE `incoterm` (
-  `id` int(11) NOT NULL,
-  `type_incoterm` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `incoterm`
---
-
-INSERT INTO `incoterm` (`id`, `type_incoterm`, `created_at`) VALUES
-(19, 'EXW', '2020-01-16 18:40:40'),
-(20, 'PER', '2020-01-16 18:40:40'),
-(23, 'kldsf', '2020-01-16 18:40:40'),
-(28, 'e', '2020-01-16 18:40:55'),
-(29, 'FOB', '2020-01-16 18:44:38');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `move_type`
---
-
-CREATE TABLE `move_type` (
-  `id` int(11) NOT NULL,
-  `type_movement` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `move_type`
---
-
-INSERT INTO `move_type` (`id`, `type_movement`, `created_at`) VALUES
-(2, 'ptp', '2020-01-16 20:45:56'),
-(3, 'DTD', '2020-01-16 20:46:06');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `state`
 --
 
@@ -445,36 +358,6 @@ INSERT INTO `state` (`id`, `name`, `country_id`, `created_at`) VALUES
 (2, 'Shanghai', 2, '2020-01-16 18:41:25'),
 (3, 'Ajaccio', 3, '2020-01-16 18:41:25');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `website` varchar(255) NOT NULL,
-  `phone` varchar(50) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `created_at` int(11) NOT NULL,
-  `reset_code` char(32) NOT NULL,
-  `is_active` tinyint(4) NOT NULL,
-  `credits_quote` int(11) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `website`, `phone`, `image`, `created_at`, `reset_code`, `is_active`, `credits_quote`) VALUES
-(6, 'Andres Aranda', 'a.aranda@eiffmx.com', 'andres', '$2y$10$qbMJ3QB8n6E4RQk2mZEm2.0aI04.l26yUj69fw/v/itq3GmK/sO3e', 'https://www.shanshah.com', '', '', 1536599997, '12b5c037bf2ba7126ea78044805cce90', 1, 2685),
-(18, 'Diego Aranda', 'diegotlaga@gmail.com', 'diego', '$2y$10$GPVEoPWJRqm4XyjMId0lquur3igfPKIVpz/Z1YcbSP0gTdxqigZg6', 'test.com', '5520135999', '', 1579894620, '', 1, 78900),
-(19, 'PEdros', 'pedro@gmail.com', 'pedros', '$2y$10$/9emDm8uQobFNWPQ4ikrTeQKafKhxYwRpyP7Lz134fp3MM9vWaL5C', 'pedro.com', '5520137485', '', 1579895498, '5a6705132d03ec012a426a21ede0c793', 0, 0);
-
 --
 -- Índices para tablas volcadas
 --
@@ -489,20 +372,6 @@ ALTER TABLE `combo`
   ADD UNIQUE KEY `incoterm` (`incoterm_id`);
 
 --
--- Indices de la tabla `commodity`
---
-ALTER TABLE `commodity`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `type_commodity` (`type_commodity`);
-
---
--- Indices de la tabla `container`
---
-ALTER TABLE `container`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `type_container` (`type_container`);
-
---
 -- Indices de la tabla `country`
 --
 ALTER TABLE `country`
@@ -510,30 +379,11 @@ ALTER TABLE `country`
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indices de la tabla `incoterm`
---
-ALTER TABLE `incoterm`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `type_incoterm` (`type_incoterm`);
-
---
--- Indices de la tabla `move_type`
---
-ALTER TABLE `move_type`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `state`
 --
 ALTER TABLE `state`
   ADD PRIMARY KEY (`id`),
   ADD KEY `country_id` (`country_id`);
-
---
--- Indices de la tabla `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -546,46 +396,16 @@ ALTER TABLE `combo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT de la tabla `commodity`
---
-ALTER TABLE `commodity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `container`
---
-ALTER TABLE `container`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT de la tabla `country`
 --
 ALTER TABLE `country`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=268;
 
 --
--- AUTO_INCREMENT de la tabla `incoterm`
---
-ALTER TABLE `incoterm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT de la tabla `move_type`
---
-ALTER TABLE `move_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT de la tabla `state`
 --
 ALTER TABLE `state`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
